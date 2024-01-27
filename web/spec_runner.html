@@ -1,0 +1,409 @@
+<!DOCTYPE html />
+<html lang="en">
+
+<head>
+  <title>Tests</title>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="jasmine.js"></script>
+  <script src="jasmine-html.js"></script>
+  <script src="boot0.js"></script>
+  <script src="boot1.js"></script>
+  <link rel="stylesheet" href="jasmine.css">
+
+  <script src="apptest.js"></script>
+
+  <link rel="stylesheet" href="app.css" />
+  <link href="https://fonts.googleapis.com/css?family=Source Sans Pro" defer rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="img/buzz-logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js" defer integrity="sha512-a6ctI6w1kg3J4dSjknHj3aWLEbjitAXAjLDRUxo2wyYmDFRcz2RJuQr5M3Kt8O/TtUSp8n2rAyaXYy1sjoKmrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://kit.fontawesome.com/99e0c3ba07.js" defer crossorigin="anonymous"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="2426363556-a9c89gtd6h8lnt7d0vq4rcm5o24pusfk.apps.googleusercontent.com">
+
+  <script src="app.js"></script>
+
+</head>
+
+<body style="overflow-x: hidden;">
+    <div id="loginItems">
+        <div id="login" style="padding-top:100">
+            <div class="d-flex">
+                <div class="mx-auto my-auto">
+                    <div class="card mx-auto bg-dark text-white" style="min-width: 500px">
+                        <div class="card-body text-center">
+                            <h4 class="card-title bold bg-dark">Login to The Buzz</h4>
+                            <p>Please use your Lehigh email.</p>
+                            <script src="https://accounts.google.com/gsi/client" async defer></script>
+                            <div id="g_id_onload" data-client_id="2426363556-a9c89gtd6h8lnt7d0vq4rcm5o24pusfk.apps.googleusercontent.com" data-callback="handleCredentialResponse"></div>
+                            <div class="g_id_signin" data-type="standard"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top d-flex" style="z-index: 100; background-color: #ba55d3;">
+            <span class="me-auto ps-4 fs-4 fw-bold">Login</span>
+            <div class="d-flex mx-auto">
+                <img src='img/buzz-logo.png' alt="The Buzz Logo" loading="lazy" decoding="async" id="buzz-logo" height="50" width="auto"/>
+                <span class="align-middle fs-1 fw-bold px-2">The Buzz</span>
+            </div>
+        </nav>
+    </div>
+
+    <div id="authenticatedItems">
+        <div id="addElement" style="padding-top:100">
+            <div class="d-flex">
+                <div class="mx-auto my-auto">
+                    <div class="card mx-auto bg-dark text-white" style="min-width: 500px">
+                        <div class="card-body text-center">
+                            <h4 class="card-title bold bg-dark">Enter your new post</h4>
+                            <textarea id="newPost" class="mx-auto" maxlength="2048" placeholder="What's on your mind?" style="width: 450px; height: 200px;"></textarea>
+                            <div class="d-flex mx-auto justify-content-around">
+                                <button id="addButton" class="btn btn-secondary ms-0">Add</button>
+                                <button id="addCancel" class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="profileElement" style="padding-top:100">
+            <div class="row my-3">
+                <div class="card mx-auto bg-dark text-white" style="width: 18rem;">
+                    <img src="img/default-profile.png" class="card-img-top" alt="Default Profile Picture" loading="lazy" decoding="async">
+                    <div class="card-body text-center">
+                        <h3 id="username" class="card-title bold bg-dark"></h3>
+                        <span id="email" class="card-text"></span><br />
+                        <span id="so" class="card-text"></span><br />
+                        <span id="gi" class="card-text"></span><br />
+                        <span id="note" class="card-text"></span><br />
+                        <button id="editProfile" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editProfileForm"><i class="fa-solid fa-pen px-2" style="color: #ffffff;"></i>Edit Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="editProfileForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editProfileForm" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-dark" id="editProfileLabel">Edit Profile</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3 row">
+                            <label for="editUsername" class="col-4 col-form-label text-dark text-start">Username</label>
+                            <div class="col me-3">
+                                <input type="text" readonly class="form-control-plaintext" id="editUsername" value="">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="editEmail" class="col-4 col-form-label text-dark text-start">Email</label>
+                            <div class="col me-3">
+                                <input type="text" readonly class="form-control-plaintext" id="editEmail" value="">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="editSO" class="col-4 col-form-label text-dark text-start">Sexual Orientation</label>
+                            <div class="col me-3">
+                                <input type="text" class="form-control" id="editSO">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="editGI" class="col-4 col-form-label text-dark text-start">Gender Identity</label>
+                            <div class="col me-3">
+                                <input type="text" class="form-control" id="editGI">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="editNote" class="col-4 col-form-label text-dark text-start">Note</label>
+                            <textarea class="form-control mx-auto" id="editNote" style="width: 450px; height: 100px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="saveProfile" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="editCommentForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editCommentForm" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-dark" id="editCommentLabel">Edit Comment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3 row">
+                            <label for="editComment" class="col-4 col-form-label text-dark text-start">Comment</label>
+                            <textarea class="form-control mx-auto" id="editComment" style="width: 450px; height: 100px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="saveComment" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="viewProfile" style="padding-top:100">
+            <div class="row my-3">
+                <div class="card mx-auto bg-dark text-white" style="width: 18rem;">
+                    <img src="img/default-profile.png" class="card-img-top" alt="Default Profile Picture" loading="lazy" decoding="async">
+                    <div class="card-body text-center">
+                        <h3 id="viewUsername" class="card-title bold bg-dark"></h3>
+                        <span id="viewEmail" class="card-text"></span><br />
+                        <span id="viewNote" class="card-text"></span><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="showElements" style="padding-top:100">
+            <button id="showFormButton" class="btn btn-dark" style="position: fixed; top: 100px; right: 30px;"><i class="fa-solid fa-pen-to-square pe-2" style="color: #ffffff;"></i>Add Post</button>
+            <div id="messageList"></div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top justify-content-between" style="z-index: 100; background-color: #ba55d3;">
+            <div class="d-flex">
+                <button id="backButton" class="btn btn-dark ms-4 rounded-circle" style="font-size: 20px; padding: 4px 10px;"><i class="fa-solid fa-arrow-left"></i></button>
+                <span id="pageName" class="align-middle ps-4 fs-4 fw-bold"></span>
+            </div>
+            <div class="d-flex">
+                <img src='img/buzz-logo.png' alt="The Buzz Logo" loading="lazy" decoding="async" id="buzz-logo" height="50" width="auto"/>
+                <span class="align-middle fs-1 fw-bold px-2">The Buzz</span>
+            </div>
+            <button class="btn btn-dark me-4" id="profileButton">
+                <img src="img/default-profile.png" class="rounded-circle" height="32" width="40" alt="Profile Image" loading="lazy" decoding="async"/>
+                <span class="fw-bold">Profile</span>
+            </button>
+        </nav>
+    </div>
+</body>
+
+<script>
+    function handleCredentialResponse(response) {
+        const responsePayload = decodeJwtResponse(response.credential);
+        let username = responsePayload.email.split("@")[0];
+        postTokenID(response.credential, username)
+    }
+
+    function decodeJwtResponse(data) {
+        var tokens = data.split(".");
+        return JSON.parse(atob(tokens[1]));
+    }
+
+    function setHomeUI(key, username) {
+        // Create the object that controls the "New Entry" form
+        newEntryForm = new NewEntryForm(key, username);
+
+        // Create the object for the main data list, and populate it with data from the server
+        mainList = new ElementList(key, username);
+        mainList.initUserVotes(username);
+
+        mainList.refresh();
+
+        // set up initial UI state
+        document.getElementById("loginItems").style.display = "none";
+        document.getElementById("authenticatedItems").style.display = "block";
+        document.getElementById("addElement").style.display = "none";
+        document.getElementById("showElements").style.display = "block";
+        document.getElementById("profileElement").style.display = "none";
+        document.getElementById("backButton").style.display = "none";
+        document.getElementById("viewProfile").style.display = "none";
+        document.getElementById("pageName").innerHTML = "Home";
+
+        // set up the "Add Message" button
+        document.getElementById("showFormButton")?.addEventListener("click", (e) => {
+            document.getElementById("addElement").style.display = "block";
+            document.getElementById("showElements").style.display = "none";
+            document.getElementById("profileElement").style.display = "none";
+            document.getElementById("backButton").style.display = "inline";
+            document.getElementById("viewProfile").style.display = "none";
+            document.getElementById("pageName").innerHTML = "New Message";
+        });
+
+        // set up back button
+        document.getElementById("backButton")?.addEventListener("click", (e) => {
+            document.getElementById("addElement").style.display = "none";
+            document.getElementById("showElements").style.display = "block";
+            document.getElementById("profileElement").style.display = "none";
+            document.getElementById("backButton").style.display = "none";
+            document.getElementById("viewProfile").style.display = "none";
+            document.getElementById("pageName").innerHTML = "Home";
+        });
+
+        // set up profile button
+        document.getElementById("profileButton")?.addEventListener("click", (e) => {
+            getOwnProfile(key, username);
+            document.getElementById("addElement").style.display = "none";
+            document.getElementById("showElements").style.display = "none";
+            document.getElementById("profileElement").style.display = "block";
+            document.getElementById("backButton").style.display = "inline";
+            document.getElementById("viewProfile").style.display = "none";
+            document.getElementById("pageName").innerHTML = "Profile";
+        });
+
+        // set up profile edit submit button
+        document.getElementById("saveProfile")?.addEventListener("click", (e) => {
+            updateProfile(key, username);
+        });
+
+        // set up comment edit submit button
+        document.getElementById("saveComment")?.addEventListener("click", (e) => {
+            console.log(document.getElementById("saveComment").dataset.commentid);
+            updateComment(key, document.getElementById("saveComment").dataset.commentid);
+        });
+    }
+
+    function postTokenID(tokenid, username) {
+        const doAjax = async () => {
+            await fetch(`${backendUrl}/users`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    idtoken: tokenid
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            }).then( (response) => {
+                // If we get an "ok" message, return the json
+                if (response.ok) {
+                    return Promise.resolve( response.json() );
+                }
+                // Otherwise, handle server errors with a detailed popup message
+                else{
+                    window.alert(`The server replied not ok: ${response.status}\n` + response.statusText);
+                }
+                return Promise.reject(response);
+            }).then( (data) => {
+                setHomeUI(data.mMessage, username);
+            }).catch( (error) => {
+                console.warn('Something went wrong.', error);
+                window.alert("Unspecified error");
+            });
+        }
+
+        // make the AJAX post and output value or error message to console
+        doAjax().then(console.log).catch(console.log);
+    }
+
+    function getOwnProfile(key, username) {
+        const doAjax = async () => {
+            await fetch(`${backendUrl}/${key}/users/${username}`, {
+                method: 'GET',
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            }).then( (response) => {
+                // If we get an "ok" message, clear the form
+                if (response.ok) {
+                    return Promise.resolve( response.json() );
+                }
+                // Otherwise, handle server errors with a detailed popup message
+                else{
+                    window.alert(`The server replied not ok: ${response.status}\n` + response.statusText);
+                }
+                return Promise.reject(response);
+            }).then( (data) => {
+                document.getElementById("username").innerHTML = "@" + data.mData.uUsername;
+                document.getElementById("editUsername").value = data.mData.uUsername;
+                document.getElementById("email").innerHTML = "Email: " + data.mData.uEmail;
+                document.getElementById("editEmail").value = data.mData.uEmail;
+                document.getElementById("so").innerHTML = "Sexual Orientation: " + data.mData.uSO;
+                document.getElementById("editSO").value = data.mData.uSO;
+                document.getElementById("gi").innerHTML = "Gender Identity: " + data.mData.uGI;
+                document.getElementById("editGI").value = data.mData.uGI;
+                document.getElementById("note").innerHTML = "Note: " + data.mData.uNote;
+                document.getElementById("editNote").innerHTML = data.mData.uNote;
+            }).catch( (error) => {
+                console.warn('Something went wrong.', error);
+                window.alert("Unspecified error");
+            });
+        }
+
+        // make the AJAX post and output value or error message to console
+        doAjax().then(console.log).catch(console.log);
+    }
+
+    function updateProfile(key, username) {
+        const doAjax = async () => {
+            fetch(`${backendUrl}/${key}/users/${username}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    uGI: document.getElementById("editGI").value,
+                    uSO: document.getElementById("editSO").value,
+                    uNote: document.getElementById("editNote").value
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            }).then( (response) => {
+                // If we get an "ok" message, return the json
+                if (response.ok) {
+                    return Promise.resolve( response.json() );
+                }
+                // Otherwise, handle server errors with a detailed popup message
+                else{
+                    window.alert(`The server replied not ok: ${response.status}\n` + response.statusText);
+                }
+                return Promise.reject(response);
+            }).then( (data) => {
+                getOwnProfile(key, username);
+            }).catch( (error) => {
+                console.warn('Something went wrong.', error);
+                window.alert("Unspecified error");
+            });
+        }
+
+        // make the AJAX post and output value or error message to console
+        doAjax().then(console.log).catch(console.log);
+    }
+
+    function updateComment(key, cId) {
+        let comment = "" + document.getElementById("editComment").value;
+        if (comment === "") {
+            window.alert("Error: comment is not valid");
+            return;
+        }
+        const doAjax = async () => {
+            fetch(`${backendUrl}/${key}/comments/${cId}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    mContent: comment
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8'
+                }
+            }).then( (response) => {
+                // If we get an "ok" message, return the json
+                if (response.ok) {
+                    return Promise.resolve( response.json() );
+                }
+                // Otherwise, handle server errors with a detailed popup message
+                else{
+                    window.alert(`The server replied not ok: ${response.status}\n` + response.statusText);
+                }
+                return Promise.reject(response);
+            }).then( (data) => {
+                document.getElementById("comment" + cId).innerHTML = comment;
+            }).catch( (error) => {
+                console.warn('Something went wrong.', error);
+                window.alert("Unspecified error");
+            });
+        }
+
+        // make the AJAX post and output value or error message to console
+        doAjax().then(console.log).catch(console.log);
+    }
+</script>
+
+</html>

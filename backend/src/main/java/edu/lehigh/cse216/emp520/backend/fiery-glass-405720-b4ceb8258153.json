@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "fiery-glass-405720",
+  "private_key_id": "b4ceb8258153dad9f0187c016b9b10302dcd7274",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCxA29PAIBCfdAt\nbggw+4SJ1v5q5K0k0uHDJyIthVuNkAEi5Ry6OEGpdpVPoScD3ZYTQ7yJZBW8IYe2\nwaZptJnvbkIS7xQQ6MUdJnu7DNqGzKx6TrTF5Gfl9OtYKP21kL3HD+vr4/x9Dm6Z\n6ZYnZ6ECHL/Cs6tnSWW0uojiJvDVpoxW6Mxwoc9tpYbgaSK3wwVPEcjbt5ITI5OO\nGOhi2Rp1OV3PixymOkzTeABe9qrvBw9pomPFoptcIvX7JEKIJltj/dDxsDR20M78\n0lHqBXLwHDYtqvEkx9jdVSf6NmKQ9ieFO6guyVekyr5IzzzuJO4RmDW1WzVfFa4p\nLV1y0KnPAgMBAAECggEAUKZLexez2FehV2mIEuUtzG2nqkU5PAtW8EbutAXMIlIH\nqoHv1kqWZCMSwV6fu4ukem+EwaZXnsk6H8LYUtYFwsieEylZn6CmWnMzsZQYJo2v\nUeR1SaqYyfWOmrLGcYiaZs1yxJ2x5rqCGt8J2jdFbQRzPD8HK76Nt8u7XSq31OdU\nc6GVvuQVguU+WAUN+0pNuZEuTco27YKUCVUUDoPktOLP1AW/aK/ZJTpva6514qaq\nf1/p1UKWp1YJ9fP6zTRxu++xaxRZFo85omLuq1D7n4YTByA+5h1aai3YyTaWm/ST\nCoFAMr6qPpkUkx4LCMbTOPv37o2HV6pK5zidLWqZsQKBgQDcsabIeBW551Kgjzol\na/s8qS1KP1xswt4r502QJbfDx9s09Gd0+XIfSmcKnJs2subCfFwz0BImKTPbmOS+\n5cN3S5MbTsS5cMIPFJulfdtIIZ6GLNEy9SKtVPZTotHGIgbQDdWnO3QjWs4zr2At\n7thaGXuDPmHe7MSFk/LiueSg/wKBgQDNVOGRswsdLT0kdJsUY9kX8OYEeR+GHE6i\nQ9NGrwvrjJL2PDu9DbCs00cUL317TGgi7v5xUDz3NTv8z0KvJ/I8ZQ0zIxUlcaTD\nNhGeUkADUkSeHyE4SEZQEGUl/qd7QxwnwjDoCB7TtwrwaGWSGsP31JuPSZysC/7f\nuJXZD3knMQKBgFZh4tpMxpRBiwH1jdjf7zLLNUL+kfqwO64Llzx4xvkG3TJZB7Wt\nfZHp2XM54TcDx3cQnjZZlwEA1594tPBTlrK3Dhl+N1ouXIbylgmsvYv6PMZf/HJp\nqO0XeGM8M8fNwcTl5V7T0p2UCWoJlyfjeSOrHcE9RamwGyv9wPAluuuZAoGBAMXM\nuAOgY9t2ggkFX4NT8IU0ppC2kdyilkmQZw4XgLcn00brnWywrHrAiR9z5ECLyWGl\ns207K4/FM4WFr6qGI790ZTPW3v8UK/F1u6E1gL7yWHGucVUDouBr+tSQLYz7iDrw\nwiYz9GZlVV9kYjxOFmw+3qA4/HlskNm5unjAhChxAoGAY1y3+QnkOi+2mCH1qquL\neRNFywap/eX2pwhTr4mOj3fb94ZWI14As0EKaQE5jn71E4OPpaUqZ7zO/qgnLEWf\nJEm98jdZmL8M82xrCmtSgZbCqI7tSdW2nk1BbQzPrrSiNBCtxe9NFpZLjxn5R78X\nyVpZiQ0zJPm+5yE8lUc6wMA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "team-snems-file-storage@fiery-glass-405720.iam.gserviceaccount.com",
+  "client_id": "111794579203975391978",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/team-snems-file-storage%40fiery-glass-405720.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
